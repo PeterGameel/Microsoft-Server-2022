@@ -265,7 +265,7 @@ resource "aws_instance" "bastion" {
   key_name                    = null
   user_data = <<-EOF
   <powershell>
-  net user Administrator "Qweasdzxc123-"
+  net user Administrator "*Paswword*"
   </powershell>
   EOF
   associate_public_ip_address = true
@@ -290,7 +290,7 @@ resource "aws_instance" "pdc" {
   
   user_data = <<-EOF
     <powershell>
-    net user Administrator "Qweasdzxc123-"
+    net user Administrator "*Paswword*"
     Set-ExecutionPolicy Unrestricted -Force
     Install-WindowsFeature AD-Domain-Services, DNS -IncludeManagementTools
 
@@ -321,7 +321,7 @@ resource "aws_instance" "adc" {
 
   user_data = <<-EOF
     <powershell>
-    net user Administrator "Qweasdzxc123-"
+    net user Administrator "*Paswword*"
     Set-ExecutionPolicy Unrestricted -Force
     Install-WindowsFeature AD-Domain-Services, DNS -IncludeManagementTools
 
@@ -360,7 +360,7 @@ resource "aws_instance" "iis" {
 
   user_data = <<-EOF
     <powershell>
-    net user Administrator "Qweasdzxc123-"
+    net user Administrator "*Paswword*"
     Set-ExecutionPolicy Unrestricted -Force
 
     $domain = "${var.domain_name}"
@@ -382,3 +382,4 @@ resource "aws_instance" "iis" {
     </powershell>
   EOF
 } 
+
